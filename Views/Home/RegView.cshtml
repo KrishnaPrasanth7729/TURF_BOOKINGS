@@ -1,0 +1,148 @@
+﻿@{
+    ViewData["Title"] = "SR Fitness Village_REGISTER";
+}
+@model TURF_BOOKINGS.Models.RegisterModel
+
+<style>
+    h2 {
+        margin-bottom: 20px;
+        text-align: center;
+        color: #333;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        transition: border-color 0.3s ease;
+    }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background: #007bff;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+    .error-message {
+        color: red;
+        font-size: 14px;
+        margin-top: 5px;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4);
+        padding-top: 60px;
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        /* margin: 5% auto;
+        padding: 20px; */
+        border: 1px solid #888;
+        width: 80%;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+</style>
+
+@* <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="~/images/newimg.jpg" style="max-width: 100%; height: 700px;" /> *@
+
+
+
+
+
+   @*  <div class="col-lg-7 " style="display: flex; background-color:white">
+        <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="~/images/newimg.jpg" style="max-width: 100%; height: auto;" />
+        <img src="~/images/logo.png" style="width:250px;height:200px;margin-top:350px;position:absolute;margin-left:70px;"/>
+    </div> *@
+
+        <div class="col-6">
+            <h2>Register</h2>
+            <form id="register-form" method="post" asp-action="RegView" >
+                <div class="form-group">
+                    <label for="name">User Name:</label>
+                    <input type="text" id="name" name="name" asp-for="Name" required>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" asp-for="Email" required>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="text" id="phone" name="phone" asp-for="Phone" required>
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" asp-for="Password" required>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <button type="submit" style="background-color:rgb(57, 203, 57);">Register</button>
+
+            </form>
+            <center>
+            <p class="py-2">
+                Already a User..?
+                <a asp-action="LogViews">Login</a>
+            </p>
+            </center>
+        </div>
+
+
+
+
+
+

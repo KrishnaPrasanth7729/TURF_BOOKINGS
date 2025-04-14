@@ -1,0 +1,129 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "SR Fitness Village_CONTACT_US";
+}
+
+
+<div class="bg-light py-5">
+    <div class="container">
+        <div class="d-flex justify-content-between">
+            <h1 class="fw-bold">Contact us</h1>
+
+        </div>
+    </div>
+</div>
+
+
+<main>
+    <div class="container py-5">
+        <div class="row g-5">
+            <!-- Contact Information Block -->
+            <div class="col-xl-6">
+                <div class="row row-cols-md-2 g-4">
+                    <div class="aos-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="aos-item__inner">
+                            <div class="bg-light hvr-shutter-out-horizontal d-block p-3">
+                                <div class="d-flex justify-content-start">
+                                    <i class="fa-solid fa-envelope h3 pe-2"></i>
+                                    <span class="h5">Email</span>
+                                </div>
+                                <span>srfitnessvillage@gmail.com</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="aos-item" data-aos="fade-up" data-aos-delay="400">
+                        <div class="aos-item__inner">
+                            <div class="bg-light hvr-shutter-out-horizontal d-block p-3">
+                                <div class="d-flex justify-content-start">
+                                    <i class="fa-solid fa-phone h3 pe-2"></i>
+                                    <span class="h5">Phone</span>
+                                </div>
+                                <span>+91 8148052707</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="aos-item mt-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="aos-item__inner">
+                        <div class="bg-light hvr-shutter-out-horizontal d-block p-3">
+                            <div class="d-flex justify-content-start">
+                                <i class="fa-solid fa-location-pin h3 pe-2"></i>
+                                <span class="h5">Turf location</span>
+                            </div>
+                            <span>#007 , Raja Street , Coimbatore , India</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="aos-item" data-aos="fade-up" data-aos-delay="800">
+                    <div class="mt-4 w-100 aos-item__inner">
+                        <iframe class="hvr-shadow" width="100%" height="345" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=11.021528911303506,76.9196134938408&hl=en&z=14&output=embed"><a href="https://www.maps.ie/distance-area-calculator.html">measure acres/hectares on map</a></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form Block -->
+            <div class="col-xl-6">
+                <h2 class="pb-4">Leave a message</h2>
+                <div class="row g-4">
+                    <div class="col-12 mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+
+                    <div class="col-6 mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Phone</label>
+                        <input type="tel" class="form-control" id="phone" required>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" rows="3" required></textarea>
+                    </div>
+                    <div class="col-12">
+                        <button type="button" onclick="sendemail()" class="btn btn-primary">Send message</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function () {
+        emailjs.init("VQmtDvJeU7pbVWAwh");
+    })();
+</script>
+
+
+<script>
+
+    function sendemail() {
+
+        var email = document.getElementById("email").value;
+        var from_name = document.getElementById("name").value;
+        var message = document.getElementById("message").value;
+
+        var templateParams = {
+            email: email,
+            from_name: from_name,
+            message: message
+        };
+
+        emailjs.send('service_0tmlhlo', 'template_4l8cui6', templateParams)
+            .then(function (response) {
+                console.log('SUCCESS!', response.status, response.text);
+                window.alert("Sent successfully!");
+
+            })
+
+
+    }
+</script>

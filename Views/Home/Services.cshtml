@@ -1,0 +1,316 @@
+﻿
+@{
+    ViewData["Title"] = "SR Fitness Village_SERVICES";
+}
+
+<style>
+    body {
+        padding: 0;
+        margin: auto;
+    }
+
+    .navigationbar {
+        background-color: rgb(65, 218, 65);
+    }
+
+        .navigationbar .navbar {
+            background-color: rgb(65, 218, 65) !important;
+        }
+
+    .services .icon-box {
+        box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
+        padding: 50px 30px;
+        transition: all ease-in-out 0.4s;
+        background: #fff;
+    }
+
+        .services .icon-box .icon {
+            margin-bottom: 10px;
+        }
+
+            .services .icon-box .icon i {
+                color: #47b2e4;
+                font-size: 36px;
+                transition: 0.3s;
+            }
+
+        .services .icon-box h4 {
+            font-weight: 500;
+            margin-bottom: 15px;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+            .services .icon-box h4 a {
+                color: #37517e;
+                transition: ease-in-out 0.3s;
+            }
+
+        .services .icon-box p {
+            line-height: 24px;
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+
+        .services .icon-box:hover {
+            transform: translateY(-10px);
+        }
+
+            .services .icon-box:hover h4 a {
+                color: #47b2e4;
+            }
+
+
+    .footer .btn.btn-social {
+        margin-right: 5px;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--light);
+        border: 1px solid #FFFFFF;
+        border-radius: 35px;
+        transition: .3s;
+    }
+
+        .footer .btn.btn-social:hover {
+            color: var(--primary);
+        }
+
+    .footer .btn.btn-link {
+        display: block;
+        margin-bottom: 5px;
+        padding: 0;
+        text-align: left;
+        color: #FFFFFF;
+        font-size: 15px;
+        font-weight: normal;
+        text-transform: capitalize;
+        transition: .3s;
+    }
+
+        .footer .btn.btn-link::before {
+            position: relative;
+            content: "\f105";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            margin-right: 10px;
+        }
+
+        .footer .btn.btn-link:hover {
+            letter-spacing: 1px;
+            box-shadow: none;
+        }
+
+    .footer .copyright {
+        padding: 25px 0;
+        font-size: 15px;
+        border-top: 1px solid rgba(256, 256, 256, .1);
+    }
+
+        .footer .copyright a {
+            color: var(--light);
+        }
+
+    .footer .footer-menu a {
+        margin-right: 15px;
+        padding-right: 15px;
+        border-right: 1px solid rgba(255, 255, 255, .1);
+    }
+
+        .footer .footer-menu a:last-child {
+            margin-right: 0;
+            padding-right: 0;
+            border-right: none;
+        }
+
+    .ff-secondary {
+        font-family: 'Pacifico', cursive;
+    }
+
+    .services {
+        text-align: justify;
+        font-size: 16px;
+        margin: 20px 0;
+        line-height: 1.6;
+    }
+
+    .services {
+        background-color: #f8f8f8;
+        padding: 40px 20px;
+    }
+
+    .service-item {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        padding: 20px;
+        text-align: justify;
+    }
+
+        .service-item h5 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .service-item p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+    .facilities-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin: 20px;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .facility-item {
+        flex: 0 1 45%;
+        margin: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+        .facility-item img {
+            max-width: 100%;
+            height: auto;
+        }
+
+    .facility-content {
+        padding: 20px;
+        text-align: center;
+    }
+
+        .facility-content h5 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .facility-content p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .facility-content .btn {
+            font-size: 16px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+            .facility-content .btn:hover {
+                background-color: #0056b3;
+            }
+
+    .facility-item img {
+        max-width: 50%;
+        height: auto;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .facility-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+</style>
+
+
+<div class="services">
+    <div class="container" data-aos="fade-up">
+        <div class="section-title">
+            <center><h2>Services</h2></center>
+            <p class="services">SR Fitness Village offers comprehensive services including a 
+                state-of-the-art gym with personalized training programs, and professional-grade 
+                turf booking for cricket and football. Our facilities include dedicated cricket 
+                nets and football coaching sessions to enhance your skills, led by experienced 
+                trainers. We also provide versatile event spaces for birthday parties and various 
+                celebrations. Our mission is to foster a supportive environment where individuals 
+                of all ages and abilities can thrive in their fitness and sporting endeavors.
+            Join us to experience the best in fitness, sports, and community engagement.</p>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+
+    <div class="facilities-section">
+        <div class="facility-item">
+            <img src="~/images/bookingsvg.png" class="img-fluid" alt="Turf Booking">
+            <div class="facility-content">
+                <h5>Book Your Turf at SR Fitness Village</h5>
+                <p>Welcome to SR Fitness Village, your premier destination for booking top-quality 
+                    turf for all your sports needs. Whether you're organizing a football match, 
+                    cricket game, or any other sports event, our state-of-the-art turf facilities 
+                    provide the perfect playing surface. Easily book your preferred slot online, 
+                    and enjoy a seamless process with flexible scheduling options.</p>
+                <a asp-action="Booking" class="btn btn-primary">Book Now</a>
+            </div>
+        </div>
+
+        <div class="facility-item">
+            <img src="~/images/fitnesssvg.jpg" class="img-fluid" alt="Fitness Training">
+            <div class="facility-content">
+                <h5>Comprehensive Fitness Training</h5>
+                <p>At SR Fitness Village, we offer comprehensive fitness training programs tailored 
+                    to meet your individual goals. Our experienced trainers provide personalized 
+                    workout plans, ensuring you achieve optimal health and fitness. Join our fitness
+                    community and take advantage of our modern equipment, group classes, and 
+                    supportive environment.</p>
+
+            </div>
+        </div>
+
+        <div class="facility-item">
+            <img src="~/images/cricketsvg.png" class="img-fluid" alt="Cricket Coaching">
+            <div class="facility-content">
+                <h5>Cricket Coaching</h5>
+                <p>Embrace the excitement of cricket at SR Fitness Village! Our top-notch facilities 
+                    are designed to cater to players of all levels, from beginners to advanced
+                    cricketers. Enjoy regular practice sessions, competitive matches, and expert 
+                    coaching to sharpen your skills. Whether you're batting, bowling, or fielding,
+                    our supportive environment ensures you have the best cricketing experience.</p>
+            </div>
+        </div>
+
+        <div class="facility-item">
+            <img src="~/images/footballsvg.png" class="img-fluid" alt="Football Coaching">
+            <div class="facility-content">
+                <h5>Football Coaching</h5>
+                <p>Experience the thrill of football at SR Fitness Village! Our 
+                    state-of-the-art turf facilities provide the perfect environment
+                    for both casual games and competitive matches. Whether you're a 
+                    seasoned player or just starting out, our expert coaches are here to
+                    help you improve your skills and enjoy the game. Join us for regular 
+                    practice sessions, weekend leagues, and exciting tournaments.</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>

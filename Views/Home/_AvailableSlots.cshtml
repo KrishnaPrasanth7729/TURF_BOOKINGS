@@ -1,0 +1,8 @@
+﻿@model List<string>
+
+<select id="slots" name="TimeSlots" multiple required>
+    @foreach (var slot in Model)
+    {
+        <option value="@slot">@slot</option>
+    }
+</select>

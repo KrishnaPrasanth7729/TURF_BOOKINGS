@@ -1,0 +1,172 @@
+﻿@{
+    ViewData["Title"] = "SR Fitness Village_UPDATE";
+}
+
+@model UpdateDTO
+
+<div class="container my-5">
+    <div class="card">
+        <div class="card-header bg-light">
+            <ul class="nav nav-tabs fw-bold">
+                <li class="nav-item">
+                    <a class="nav-link active" id="history-tab" onclick="showTab('history')">History</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pending-tab" onclick="showTab('pending')">Pending</a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <div id="history" class="tab-content">
+                <h2>History</h2>
+                @if (ViewBag.History == null)
+                {
+                    <p>No bookings found.</p>
+                }
+                else
+                {
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Time Slots</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var booking in ViewBag.History)
+                            {
+                                <tr>
+                                    <td>@booking.Date.ToShortDateString()</td>
+                                    <td>@string.Join(", ", booking.TimeSlots)</td>
+                                    <td>@booking.Amount</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
+            <div id="pending" class="tab-content" style="display:none;">
+                <h2>Pending</h2>
+                @if (ViewBag.Pending == null)
+                {
+                    <p>No bookings found.</p>
+                }
+                else
+                {
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Time Slots</th>
+                                <th>Amount</th>
+                                <th>Update</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var booking in ViewBag.Pending)
+                            {
+                                var modalId = "editform-" + booking.Id;
+                                <tr>
+                                    <td>@booking.Date.ToShortDateString()</td>
+                                    <td>@string.Join(", ", booking.TimeSlots)</td>
+                                    <td>@booking.Amount</td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning text-white" data-bs-toggle="modal" data-bs-target="#@modalId">Edit</button>
+                                        <div class="modal fade" id="@modalId" tabindex="-1" aria-labelledby="editformLabel-@booking.Id" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="editformLabel-@booking.Id">Edit Form</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form id="booking-form" method="post" action="@Url.Action("Update")" enctype="multipart/form-data">
+                                                            <input type="text" value="@booking.Id" asp-for="@Model.Id" hidden />
+                                                            <div class="form-group">
+                                                                <label for="slots">Select Time Slots (up to 5):</label>
+                                                                <br />
+                                                                <br />
+                                                                <select id="slots" name="TimeSlots" asp-for="@Model.TimeSlots" multiple required>
+                                                                    <option value="00:00">00:00 - 01:00</option>
+                                                                    <option value="01:00">01:00 - 02:00</option>
+                                                                    <option value="02:00">02:00 - 03:00</option>
+                                                                    <option value="03:00">03:00 - 04:00</option>
+                                                                    <option value="04:00">04:00 - 05:00</option>
+                                                                    <option value="05:00">05:00 - 06:00</option>
+                                                                    <option value="06:00">06:00 - 07:00</option>
+                                                                    <option value="07:00">07:00 - 08:00</option>
+                                                                    <option value="08:00">08:00 - 09:00</option>
+                                                                    <option value="09:00">09:00 - 10:00</option>
+                                                                    <option value="10:00">10:00 - 11:00</option>
+                                                                    <option value="11:00">11:00 - 12:00</option>
+                                                                    <option value="12:00">12:00 - 13:00</option>
+                                                                    <option value="13:00">13:00 - 14:00</option>
+                                                                    <option value="14:00">14:00 - 15:00</option>
+                                                                    <option value="15:00">15:00 - 16:00</option>
+                                                                    <option value="16:00">16:00 - 17:00</option>
+                                                                    <option value="17:00">17:00 - 18:00</option>
+                                                                    <option value="18:00">18:00 - 19:00</option>
+                                                                    <option value="19:00">19:00 - 20:00</option>
+                                                                    <option value="20:00">20:00 - 21:00</option>
+                                                                    <option value="21:00">21:00 - 22:00</option>
+                                                                    <option value="22:00">22:00 - 23:00</option>
+                                                                    <option value="23:00">23:00 - 00:00</option>
+                                                                </select>
+                                                                <div class="error-message" id="slot-error"></div>
+                                                            </div>
+                                                            <br />
+                                                            <br />
+                                                            <button type="submit" class="btn btn-primary">Update Slot</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <form method="post" action="@Url.Action("Delete", "Home")">
+                                            <input type="hidden" name="Id" value="@booking.Id" />
+                                            <input type="hidden" name="TimeSlots" value="@string.Join(", ", booking.TimeSlots)" />
+                                            <button type="submit" class="btn btn-danger text-white">Delete</button>
+                                        </form>
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showTab(tabName) {
+        var tabs = document.getElementsByClassName('tab-content');
+        for (var i = 0; i < tabs.length; i++) {
+            tabs[i].style.display = 'none';
+        }
+        document.getElementById(tabName).style.display = 'block';
+
+        var navLinks = document.getElementsByClassName('nav-link');
+        for (var i = 0; i < navLinks.length; i++) {
+            navLinks[i].classList.remove('active');
+        }
+        if (tabName === 'history') {
+            document.getElementById('history-tab').classList.add('active');
+        } else if (tabName === 'pending') {
+            document.getElementById('pending-tab').classList.add('active');
+        }
+    }
+
+    
+
+</script>
+
+
+
+
+

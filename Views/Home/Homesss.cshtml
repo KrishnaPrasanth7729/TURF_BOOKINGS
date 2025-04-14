@@ -1,0 +1,235 @@
+﻿
+@{
+    ViewData["Title"] = "SR Fitness Village_HOME";
+}
+
+@model reviewModel;
+
+<style>
+    body {
+        padding: 0;
+        margin: auto;
+    }
+
+    .navigationbar {
+        background-color: rgb(65, 218, 65);
+    }
+
+        .navigationbar .navbar {
+            background-color: rgb(65, 218, 65) !important;
+        }
+
+
+    /*** Footer ***/
+    .footer .btn.btn-social {
+        margin-right: 5px;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--light);
+        border: 1px solid #FFFFFF;
+        border-radius: 35px;
+        transition: .3s;
+    }
+
+        .footer .btn.btn-social:hover {
+            color: var(--primary);
+        }
+
+    .footer .btn.btn-link {
+        display: block;
+        margin-bottom: 5px;
+        padding: 0;
+        text-align: left;
+        color: #FFFFFF;
+        font-size: 15px;
+        font-weight: normal;
+        text-transform: capitalize;
+        transition: .3s;
+    }
+
+        .footer .btn.btn-link::before {
+            position: relative;
+            content: "\f105";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            margin-right: 10px;
+        }
+
+        .footer .btn.btn-link:hover {
+            letter-spacing: 1px;
+            box-shadow: none;
+        }
+
+    .footer .copyright {
+        padding: 25px 0;
+        font-size: 15px;
+        border-top: 1px solid rgba(256, 256, 256, .1);
+    }
+
+        .footer .copyright a {
+            color: var(--light);
+        }
+
+    .footer .footer-menu a {
+        margin-right: 15px;
+        padding-right: 15px;
+        border-right: 1px solid rgba(255, 255, 255, .1);
+    }
+
+        .footer .footer-menu a:last-child {
+            margin-right: 0;
+            padding-right: 0;
+            border-right: none;
+        }
+
+    .ff-secondary {
+        font-family: 'Pacifico', cursive;
+    }
+
+    .service {
+        margin: 5%;
+    }
+
+    .services .icon-box {
+        box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
+        padding: 50px 30px;
+        transition: all ease-in-out 0.4s;
+        background: #fff;
+    }
+
+        .services .icon-box .icon {
+            margin-bottom: 10px;
+        }
+
+            .services .icon-box .icon i {
+                color: #47b2e4;
+                font-size: 36px;
+                transition: 0.3s;
+            }
+
+        .services .icon-box h4 {
+            font-weight: 500;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+            .services .icon-box h4 a {
+                color: #37517e;
+                transition: ease-in-out 0.3s;
+            }
+
+        .services .icon-box p {
+            line-height: 24px;
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+
+        .services .icon-box:hover {
+            transform: translateY(-10px);
+        }
+
+            .services .icon-box:hover h4 a {
+                color: #47b2e4;
+            }
+
+    .icon-box {
+        text-align: justify;
+    }
+
+        .icon-box h4 {
+            text-decoration: none;
+        }
+
+</style>
+
+
+<div class="home">
+
+    <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="~/images/footballheroimg.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Football</h5>
+                    <p style="font-weight: 700;">
+                        Experience the thrill of football at SR Fitness Village!
+                        Our state-of-the-art turf facilities provide the perfect environment
+                        for both casual games and competitive matches. Whether you're a seasoned
+                        player or just starting out, our expert coaches are here to help you improve
+                        your skills and enjoy the game. Join us for regular practice sessions, weekend leagues,
+                        and exciting tournaments. Get ready to score your goals and make lasting memories with fellow
+                        football enthusiasts!
+                    </p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="~/images/cricket-turf-img-hero.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Cricket</h5>
+                    <p style="font-weight: 700;">
+                        Embrace the excitement of cricket at SR Fitness Village! Our top-notch
+                        facilities are designed to cater to players of all levels, from beginners to advanced cricketers.
+                        Enjoy regular practice sessions, competitive matches, and expert coaching to sharpen your skills.
+                        Whether you're batting, bowling, or fielding, our supportive environment and excellent turf ensure
+                        you have the best cricketing experience.
+                        Join us and become a part of our vibrant cricket community!
+                    </p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+</div>
+
+<div class="service">
+    <div class="row">
+        <div class="col-xl-3 col-md-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+                <h4><a asp-action="Services">Turf</a></h4>
+                <p>To Book your comfortable turf timimg and play your favorite sport.</p>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-3 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+                <h4><a asp-action="Services">Cricket Coaching</a></h4>
+                <p>Cricket coaching given to childern by Divison A players and Coaches.</p>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-3 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
+            <div class="icon-box">
+                <div class="icon"><i class="bx bx-tachometer"></i></div>
+                <h4><a asp-action="Services">Football Coaching</a></h4>
+                <p>Football coaching given to the children by Ileague Players and Coaches.</p>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-3 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
+            <div class="icon-box">
+                <div class="icon"><i class="bx bx-layer"></i></div>
+                <h4><a asp-action="Services">Events</a></h4>
+                <p>Events like Birthday Parties, Dance Competition, ect., are well organized and done.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+    

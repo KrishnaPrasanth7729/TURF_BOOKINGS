@@ -1,0 +1,48 @@
+﻿
+@{
+}
+
+<div class="container my-5">
+    <div class="card">
+        <div class="card-header bg-light">
+            <ul class="nav nav-tabs fw-bold">
+                <li class="nav-item">
+                    <a class="nav-link active" id="user-tab" onclick="showTab('user')">User</a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <div id="user" class="tab-content">
+                <h2>Users</h2>
+                @if (ViewBag.Users == null)
+                {
+                    <p>No Users found.</p>
+                }
+                else
+                {
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Password</th>
+                                <th>Phone</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var booking in ViewBag.Users)
+                            {
+                                <tr>
+                                    <td>@booking.Name</td>
+                                    <td>@booking.Email</td>
+                                    <td>@booking.Password</td>
+                                    <td>@booking.Phone</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
+</div>
